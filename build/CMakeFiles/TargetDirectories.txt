@@ -1,7 +1,0 @@
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/dose_calculation.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/edit_cache.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/rebuild_cache.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/list_install_components.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/install.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/install/local.dir
-/home/lolibarmen/Code/Vazirov/build/CMakeFiles/install/strip.dir
