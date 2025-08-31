@@ -1,0 +1,119 @@
+#ifndef DETECTOR_CONSTRUCTION_HPP
+#define DETECTOR_CONSTRUCTION_HPP
+
+#include "G4VUserDetectorConstruction.hh"
+#include "G4Box.hh"
+#include "G4LogicalVolume.hh"
+#include "G4PVPlacement.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4NistManager.hh"
+#include "G4VisAttributes.hh"
+#include "G4Colour.hh"
+
+class DetectorConstruction : public G4VUserDetectorConstruction {
+public:
+    DetectorConstruction() 
+        : worldSize(50*cm), 
+          phantomSize(30*cm, 30*cm, 20*cm),
+          absorberThickness(5*mm),
+          useAbsorber(false),
+          absorberMaterial(nullptr),
+          phantomMaterial(nullptr) {}
+    
+    virtual ~DetectorConstruction() {}
+    
+    virtual G4VPhysicalVolume* Construct() override {
+        // Получаем менеджер материалов NIST
+        G4NistManager* nist = G4NistManager::Instance();
+        
+        // Создаем материалы
+        G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
+        phantomMaterial = nist->FindOrBuildMaterial("G4_WATER");  // Вода как фантом тканей
+        absorberMaterial = nist->FindOrBuildMaterial("G4_Pb");    // Свинец как поглотитель
+        
+        // Создаем мировой объем
+        G4Box* worldSolid = new G4Box("World", worldSize/2, worldSize/2, worldSize/2);
+        G4LogicalVolume* worldLogical = new G4LogicalVolume(worldSolid, air, "World");
+        G4VPhysicalVolume* worldPhysical = new G4PVPlacement(0, G4ThreeVector(), worldLogical, 
+                                                           "World", 0, false, 0);
+        
+        // Создаем фантом (мишень)
+        G4Box* phantomSolid = new G4Box("Phantom", phantomSize.x()/2, phantomSize.y()/2, phantomSize.z()/2);
+        G4LogicalVolume* phantomLogical = new G4LogicalVolume(phantomSolid, phantomMaterial, "Phantom");
+        new G4PVPlacement(0, G4ThreeVector(0, 0, 0), phantomLogical, "Phantom", worldLogical, false, 0);
+        
+        // Создаем поглотитель (опционально)
+        if (useAbsorber) {
+            G4double absorberPosZ = -phantomSize.z()/2 - absorberThickness/2;
+            G4Box* absorberSolid = new G4Box("Absorber", phantomSize.x()/2, phantomSize.y()/2, absorberThickness/2);
+            G4LogicalVolume* absorberLogical = new G4LogicalVolume(absorberSolid, absorberMaterial, "Absorber");
+            new G4PVPlacement(0, G4ThreeVector(0, 0, absorberPosZ), absorberLogical, 
+                            "Absorber", worldLogical, false, 0);
+        }
+        
+        // Настраиваем визуализацию
+        SetupVisualization(worldLogical, phantomLogical);
+        
+        return worldPhysical;
+    }
+    
+    void SetUseAbsorber(G4bool use) { useAbsorber = use; }
+    G4bool GetUseAbsorber() const { return useAbsorber; }
+    
+    void SetAbsorberThickness(G4double thickness) { absorberThickness = thickness; }
+    G4double GetAbsorberThickness() const { return absorberThickness; }
+    
+    void SetAbsorberMaterial(const G4String& materialName) {
+        G4NistManager* nist = G4NistManager::Instance();
+        absorberMaterial = nist->FindOrBuildMaterial(materialName);
+    }
+    
+    void SetPhantomMaterial(const G4String& materialName) {
+        G4NistManager* nist = G4NistManager::Instance();
+        phantomMaterial = nist->FindOrBuildMaterial(materialName);
+    }
+    
+    G4ThreeVector GetPhantomSize() const { return phantomSize; }
+    G4double GetWorldSize() const { return worldSize; }
+
+private:
+    void SetupVisualization(G4LogicalVolume* worldLV, G4LogicalVolume* phantomLV) {
+        // Мировой объем - невидимый
+        worldLV->SetVisAttributes(G4VisAttributes::GetInvisible());
+        
+        // Фантом - синий полупрозрачный
+        G4VisAttributes* phantomVis = new G4VisAttributes(G4Colour(0.0, 0.0, 1.0, 0.3));
+        phantomVis->SetForceSolid(true);
+        phantomLV->SetVisAttributes(phantomVis);
+        
+        // Поглотитель - серый (если используется)
+        if (useAbsorber) {
+            G4LogicalVolume* absorberLV = FindLogicalVolume("Absorber");
+            if (absorberLV) {
+                G4VisAttributes* absorberVis = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.8));
+                absorberVis->SetForceSolid(true);
+                absorberLV->SetVisAttributes(absorberVis);
+            }
+        }
+    }
+    
+    G4LogicalVolume* FindLogicalVolume(const G4String& name) {
+        // Простая функция поиска логического объема по имени
+        G4LogicalVolumeStore* store = G4LogicalVolumeStore::GetInstance();
+        for (auto lv : *store) {
+            if (lv->GetName() == name) return lv;
+        }
+        return nullptr;
+    }
+
+private:
+    G4double worldSize;
+    G4ThreeVector phantomSize;
+    G4double absorberThickness;
+    G4bool useAbsorber;
+    
+    G4Material* absorberMaterial;
+    G4Material* phantomMaterial;
+};
+
+#endif // DETECTOR_CONSTRUCTION_HPP
