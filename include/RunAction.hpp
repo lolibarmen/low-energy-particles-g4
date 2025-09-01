@@ -20,7 +20,8 @@ public:
     virtual void BeginOfRunAction(const G4Run* run) override {
         // Инициализация анализатора
         G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-        analysisManager->OpenFile("dose_analysis");
+        analysisManager->SetDefaultFileType("csv");
+        analysisManager->OpenFile("dose_analysis.csv");
         
         // Создаем гистограммы для распределения дозы по глубине
         G4double phantomDepth = detConstruction->GetPhantomSize().z();
