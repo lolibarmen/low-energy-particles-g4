@@ -35,7 +35,7 @@ public:
         particleGun->SetParticleEnergy(beamEnergy);
         
         // Устанавливаем позицию (возможна гауссова дистрибуция)
-        G4ThreePosition position = beamPosition;
+        G4ThreeVector position = beamPosition;
         if (useGaussianBeam) {
             position.setX(G4RandGauss::shoot(beamPosition.x(), beamSigma));
             position.setY(G4RandGauss::shoot(beamPosition.y(), beamSigma));

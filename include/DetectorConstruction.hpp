@@ -87,24 +87,24 @@ private:
         phantomLV->SetVisAttributes(phantomVis);
         
         // Поглотитель - серый (если используется)
-        if (useAbsorber) {
-            G4LogicalVolume* absorberLV = FindLogicalVolume("Absorber");
-            if (absorberLV) {
-                G4VisAttributes* absorberVis = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.8));
-                absorberVis->SetForceSolid(true);
-                absorberLV->SetVisAttributes(absorberVis);
-            }
-        }
+        // if (useAbsorber) {
+        //     G4LogicalVolume* absorberLV = FindLogicalVolume("Absorber");
+        //     if (absorberLV) {
+        //         G4VisAttributes* absorberVis = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.8));
+        //         absorberVis->SetForceSolid(true);
+        //         absorberLV->SetVisAttributes(absorberVis);
+        //     }
+        // }
     }
     
-    G4LogicalVolume* FindLogicalVolume(const G4String& name) {
-        // Простая функция поиска логического объема по имени
-        G4LogicalVolumeStore* store = G4LogicalVolumeStore::GetInstance();
-        for (auto lv : *store) {
-            if (lv->GetName() == name) return lv;
-        }
-        return nullptr;
-    }
+    // G4LogicalVolume* FindLogicalVolume(const G4String& name) {
+    //     // Простая функция поиска логического объема по имени
+    //     G4LogicalVolumeStore* store = G4LogicalVolumeStore::GetInstance();
+    //     for (auto lv : *store) {
+    //         if (lv->GetName() == name) return lv;
+    //     }
+    //     return nullptr;
+    // }
 
 private:
     G4double worldSize;

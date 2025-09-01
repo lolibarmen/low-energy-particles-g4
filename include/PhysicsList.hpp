@@ -23,18 +23,18 @@ public:
         
         // Регистрируем стандартные физические процессы
         RegisterPhysics(new G4DecayPhysics());
-        RegisterPhysics(new G4RadioactiveDecayPhysics());
-        RegisterPhysics(new G4EmExtraPhysics());
-        RegisterPhysics(new G4HadronElasticPhysics());
-        RegisterPhysics(new G4HadronPhysicsFTFP_BERT());
-        RegisterPhysics(new G4StoppingPhysics());
-        RegisterPhysics(new G4IonPhysics());
+        // RegisterPhysics(new G4RadioactiveDecayPhysics());
+        // RegisterPhysics(new G4EmExtraPhysics());
+        // RegisterPhysics(new G4HadronElasticPhysics());
+        // RegisterPhysics(new G4HadronPhysicsFTFP_BERT());
+        // RegisterPhysics(new G4StoppingPhysics());
+        // RegisterPhysics(new G4IonPhysics());
         
         // Регистрируем электромагнитную физику с опцией 4 (оптимизирована для медицинской физики)
-        RegisterPhysics(new G4EmStandardPhysics_option4());
+        // RegisterPhysics(new G4EmStandardPhysics_option4());
         
         // Регистрируем низкоэнергетическую физику для точного моделирования на малых энергиях
-        RegisterPhysics(new G4EmLowEPPhysics());
+        // RegisterPhysics(new G4EmLowEPPhysics());
         
         // Настраиваем параметры электромагнитных процессов
         ConfigureEMPhysics();
@@ -85,7 +85,6 @@ private:
         
         // Настраиваем параметры для точного моделирования в области низких энергий
         params->SetLowestElectronEnergy(100*eV);
-        params->SetLowestMuonEnergy(100*eV);
         
         // Включаем дополнительные опции для медицинской физики
         params->SetUseICRU90Data(true);      // Используем данные ICRU 90
@@ -96,33 +95,19 @@ private:
         params->SetBuildCSDARange(true);
         params->SetMaxNIELEnergy(1*MeV);
         
-        // Включаем точное моделирование для фотонов и электронов
+        // Включаем точное моделирование для электронов
         params->SetUseMottCorrection(true);  // Поправка Мотта для электронов
-        params->SetUseNuclearReactions(true); // Ядерные реакции
         
-        // Настраиваем параметры для жидкостей и биологических тканей
-        params->SetUseDNA(true);             // Включаем моделирование повреждений ДНК
-        params->SetUseDNAStationary(true);
-        params->SetUseDNAResurrection(true);
+        // Дополнительные параметры для низкоэнергетической физики
+        params->SetAuger(true);              // Включаем эффект Оже
+        params->SetPixe(true);               // Включаем PIXE (рентгеновское излучение протонов)
+        params->SetDeexcitationIgnoreCut(true);
         
         if (verboseLevel > 0) {
             G4cout << "EM physics configured for low-energy radiation studies" << G4endl;
             G4cout << "Min energy: " << params->MinKinEnergy()/keV << " keV" << G4endl;
             G4cout << "Max energy: " << params->MaxKinEnergy()/MeV << " MeV" << G4endl;
         }
-    }
-    
-    void ConfigureLowEnergyPhysics() {
-        // Дополнительная настройка для низкоэнергетической физики
-        G4EmParameters* params = G4EmParameters::Instance();
-        
-        // Устанавливаем специальные параметры для низких энергий
-        params->SetAuger(true);              // Включаем эффект Оже
-        params->SetPixe(true);               // Включаем PIXE (рентгеновское излучение протонов)
-        params->SetDeexcitationIgnoreCut(true);
-        
-        // Настраиваем точность для фотоэлектрического эффекта
-        params->SetPhotoElectricAngleProfile("Sandia");
     }
 
 private:

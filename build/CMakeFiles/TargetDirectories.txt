@@ -1,0 +1,7 @@
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/dose_calculation.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/edit_cache.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/rebuild_cache.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/list_install_components.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/install.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/install/local.dir
+/home/lolibarmen/Code/low-energy-particles-g4/build/CMakeFiles/install/strip.dir
