@@ -23,18 +23,18 @@ public:
         
         // Регистрируем стандартные физические процессы
         RegisterPhysics(new G4DecayPhysics());
-        // RegisterPhysics(new G4RadioactiveDecayPhysics());
-        // RegisterPhysics(new G4EmExtraPhysics());
-        // RegisterPhysics(new G4HadronElasticPhysics());
-        // RegisterPhysics(new G4HadronPhysicsFTFP_BERT());
-        // RegisterPhysics(new G4StoppingPhysics());
-        // RegisterPhysics(new G4IonPhysics());
+        RegisterPhysics(new G4RadioactiveDecayPhysics());
+        RegisterPhysics(new G4EmExtraPhysics());
+        RegisterPhysics(new G4HadronElasticPhysics());
+        RegisterPhysics(new G4HadronPhysicsFTFP_BERT());
+        RegisterPhysics(new G4StoppingPhysics());
+        RegisterPhysics(new G4IonPhysics());
         
         // Регистрируем электромагнитную физику с опцией 4 (оптимизирована для медицинской физики)
-        // RegisterPhysics(new G4EmStandardPhysics_option4());
+        RegisterPhysics(new G4EmStandardPhysics_option4());
         
         // Регистрируем низкоэнергетическую физику для точного моделирования на малых энергиях
-        // RegisterPhysics(new G4EmLowEPPhysics());
+        RegisterPhysics(new G4EmLowEPPhysics());
         
         // Настраиваем параметры электромагнитных процессов
         ConfigureEMPhysics();
@@ -57,7 +57,7 @@ public:
         }
         
         // Обновляем таблицу порогов отсечки
-        G4ProductionCutsTable::GetProductionCutsTable()->SetEnergyRange(100*eV, 1*GeV);
+        G4ProductionCutsTable::GetProductionCutsTable()->SetEnergyRange(1000*eV, 1*GeV);
     }
     
     void SetGammaCut(G4double cut) { cutForGamma = cut; }
@@ -102,6 +102,9 @@ private:
         params->SetAuger(true);              // Включаем эффект Оже
         params->SetPixe(true);               // Включаем PIXE (рентгеновское излучение протонов)
         params->SetDeexcitationIgnoreCut(true);
+        // params->SetAuger(false);
+        // params->SetPixe(false);
+        // params->SetDeexcitationIgnoreCut(false);
         
         if (verboseLevel > 0) {
             G4cout << "EM physics configured for low-energy radiation studies" << G4endl;

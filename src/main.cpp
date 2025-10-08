@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
     
     // Базовая конфигурация
-    UImanager->ApplyCommand("/control/execute macros/init_vis.mac");
+    UImanager->ApplyCommand("/control/execute macros/sim.mac");
     
     // Запуск интерактивной сессии или выполнение macro-файла
     if (argc == 1) {

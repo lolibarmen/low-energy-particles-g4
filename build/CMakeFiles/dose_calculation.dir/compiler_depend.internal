@@ -7,6 +7,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o
  /home/lolibarmen/Code/low-energy-particles-g4/include/PhysicsList.hpp
  /home/lolibarmen/Code/low-energy-particles-g4/include/PrimaryGeneratorAction.hpp
  /home/lolibarmen/Code/low-energy-particles-g4/include/RunAction.hpp
+ /home/lolibarmen/Code/low-energy-particles-g4/include/SensitiveDetector.hpp
  /home/lolibarmen/Code/low-energy-particles-g4/include/SteppingAction.hpp
  /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/algorithm
  /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/array
@@ -503,6 +504,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ChargedUnknownParticle.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ChemTimeStepModel.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ClassificationOfNewTrack.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4CollectionNameVector.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Color.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Colour.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Cons.hh
@@ -567,6 +569,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4GlobalConfig.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4GraphicsSystemList.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HCofThisEvent.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HCtable.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadFinalState.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadProjectile.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadSecondary.hh
@@ -720,12 +723,15 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Run.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4RunManager.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4RunManagerKernel.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDManager.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDStructure.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SandiaTable.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Scene.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Scene.icc
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneHandlerList.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneList.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneTreeItem.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SensitiveVolumeList.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaMinus.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaPlus.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaZero.hh
@@ -866,9 +872,12 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VPrimaryGenerator.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VProcess.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRML2File.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VReadOutGeometry.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRestDiscreteProcess.hh
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSDFilter.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSceneHandler.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSceneHandler.icc
+ /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSensitiveDetector.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.hh
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.icc
  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VStateDependent.hh

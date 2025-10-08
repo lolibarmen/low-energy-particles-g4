@@ -1,6 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 pkgs.mkShell {
     buildInputs = [
+      pkgs.root
       pkgs.geant4
       pkgs.geant4.data.G4ABLA
       pkgs.geant4.data.G4INCL 

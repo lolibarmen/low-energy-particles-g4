@@ -12,17 +12,8 @@
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
 public:
-    PrimaryGeneratorAction() 
-        : particleGun(new G4ParticleGun(1)),
-          beamType("electron"),
-          beamEnergy(6*MeV),
-          beamSigma(2*mm),
-          beamPosition(0, 0, -15*cm),
-          beamDirection(0, 0, 1),
-          useGaussianBeam(false),
-          useDivergentBeam(false),
-          beamDivergence(0.0) {
-        
+    PrimaryGeneratorAction() : particleGun(new G4ParticleGun(1))
+    {    
         ConfigureParticleGun();
     }
     
@@ -30,129 +21,52 @@ public:
         delete particleGun;
     }
     
-    virtual void GeneratePrimaries(G4Event* event) override {
-        // Устанавливаем энергию частицы
-        particleGun->SetParticleEnergy(beamEnergy);
+    virtual void GeneratePrimaries(G4Event* anEvent) override {        
+        G4ThreeVector basePosition = particleGun->GetParticlePosition();
+        G4ThreeVector baseDirection = particleGun->GetParticleMomentumDirection();
+
+        G4double planeSizeX = 10.0 * cm;
+        G4double planeSizeY = 10.0 * cm;
+
+        G4ThreeVector normal = baseDirection.unit();
         
-        // Устанавливаем позицию (возможна гауссова дистрибуция)
-        G4ThreeVector position = beamPosition;
-        if (useGaussianBeam) {
-            position.setX(G4RandGauss::shoot(beamPosition.x(), beamSigma));
-            position.setY(G4RandGauss::shoot(beamPosition.y(), beamSigma));
+        G4ThreeVector axisX, axisY;
+
+        G4ThreeVector temp;
+        if (std::abs(normal.z()) < 0.9) {
+            temp = G4ThreeVector(0., 0., 1.);
+        } else {
+            temp = G4ThreeVector(1., 0., 0.);
         }
-        particleGun->SetParticlePosition(position);
+
+        axisX = (normal.cross(temp)).unit();
+        axisY = (normal.cross(axisX)).unit();
+
+        G4double u = (G4UniformRand() - 0.5) * planeSizeX;
+        G4double v = (G4UniformRand() - 0.5) * planeSizeY;
+
+        G4ThreeVector finalPosition = basePosition + u * axisX + v * axisY;
         
-        // Устанавливаем направление (возможна дивергенция)
-        G4ThreeVector direction = beamDirection;
-        if (useDivergentBeam && beamDivergence > 0.0) {
-            G4double theta = G4RandGauss::shoot(0.0, beamDivergence);
-            G4double phi = G4UniformRand() * 360.0 * deg;
-            direction.setRThetaPhi(1.0, theta, phi);
-        }
-        particleGun->SetParticleMomentumDirection(direction);
+        particleGun->SetParticlePosition(finalPosition);
         
-        // Генерируем первичные частицы
-        particleGun->GeneratePrimaryVertex(event);
-        
-        if (event->GetEventID() % 10000 == 0) {
-            G4cout << "Generated event " << event->GetEventID() 
-                   << " with " << beamType << " beam at " 
-                   << beamEnergy/MeV << " MeV" << G4endl;
-        }
+        particleGun->GeneratePrimaryVertex(anEvent);
+
+        particleGun->SetParticlePosition(basePosition);
     }
-    
-    void SetBeamType(const G4String& type) {
-        beamType = type;
-        ConfigureParticleGun();
-    }
-    
-    void SetBeamEnergy(G4double energy) { 
-        beamEnergy = energy; 
-    }
-    
-    void SetBeamPosition(const G4ThreeVector& pos) { 
-        beamPosition = pos; 
-    }
-    
-    void SetBeamDirection(const G4ThreeVector& dir) { 
-        beamDirection = dir.unit(); 
-    }
-    
-    void SetBeamSigma(G4double sigma) { 
-        beamSigma = sigma; 
-        useGaussianBeam = (sigma > 0.0);
-    }
-    
-    void SetBeamDivergence(G4double divergence) { 
-        beamDivergence = divergence; 
-        useDivergentBeam = (divergence > 0.0);
-    }
-    
-    void SetParticleCount(G4int count) { 
-        particleGun->SetNumberOfParticles(count); 
-    }
-    
-    G4String GetBeamType() const { return beamType; }
-    G4double GetBeamEnergy() const { return beamEnergy; }
-    G4ThreeVector GetBeamPosition() const { return beamPosition; }
-    G4ThreeVector GetBeamDirection() const { return beamDirection; }
-    G4double GetBeamSigma() const { return beamSigma; }
-    G4double GetBeamDivergence() const { return beamDivergence; }
-    G4int GetParticleCount() const { return particleGun->GetNumberOfParticles(); }
 
 private:
     void ConfigureParticleGun() {
         G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
         G4ParticleDefinition* particle = nullptr;
-        
-        if (beamType == "electron") {
-            particle = particleTable->FindParticle("e-");
-        } else if (beamType == "photon") {
-            particle = particleTable->FindParticle("gamma");
-        } else if (beamType == "positron") {
-            particle = particleTable->FindParticle("e+");
-        } else if (beamType == "proton") {
-            particle = particleTable->FindParticle("proton");
-        } else {
-            // По умолчанию используем электроны
-            particle = particleTable->FindParticle("e-");
-            beamType = "electron";
-        }
-        
-        if (particle) {
-            particleGun->SetParticleDefinition(particle);
-            G4cout << "Particle gun configured for: " << particle->GetParticleName() << G4endl;
-        } else {
-            G4Exception("PrimaryGeneratorAction::ConfigureParticleGun", 
-                       "InvalidParticle", FatalException, 
-                       "Particle type not found in particle table");
-        }
-    }
-    
-    void ConfigureElectronBeamParameters() {
-        // Параметры типичного медицинского ускорителя электронов
-        SetBeamSigma(2*mm);          // Размер пучка
-        SetBeamDivergence(2.0*deg);  // Дивергенция пучка
-        SetBeamPosition(G4ThreeVector(0, 0, -15*cm)); // Положение источника
-    }
-    
-    void ConfigurePhotonBeamParameters() {
-        // Параметры типичного фотонного пучка
-        SetBeamSigma(3*mm);          // Размер пучка
-        SetBeamDivergence(1.5*deg);  // Дивергенция пучка
-        SetBeamPosition(G4ThreeVector(0, 0, -20*cm)); // Положение источника
+
+        particle = particleTable->FindParticle("e-");
+
+        particleGun->SetParticleDefinition(particle);
+        G4cout << "Particle gun configured for: " << particle->GetParticleName() << G4endl;
     }
 
 private:
     G4ParticleGun* particleGun;
-    G4String beamType;
-    G4double beamEnergy;
-    G4double beamSigma;
-    G4ThreeVector beamPosition;
-    G4ThreeVector beamDirection;
-    G4bool useGaussianBeam;
-    G4bool useDivergentBeam;
-    G4double beamDivergence;
 };
 
 #endif // PRIMARY_GENERATOR_ACTION_HPP

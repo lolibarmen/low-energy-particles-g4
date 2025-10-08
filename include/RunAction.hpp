@@ -20,15 +20,15 @@ public:
     virtual void BeginOfRunAction(const G4Run* run) override {
         // Инициализация анализатора
         G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-        analysisManager->SetDefaultFileType("csv");
-        analysisManager->OpenFile("dose_analysis.csv");
+        analysisManager->SetDefaultFileType("root");
+        analysisManager->OpenFile("/tmp/dose_analysis.root");
         
         // Создаем гистограммы для распределения дозы по глубине
         G4double phantomDepth = detConstruction->GetPhantomSize().z();
         analysisManager->CreateH1("dose_depth", "Dose distribution along depth", 
-                                 100, 0, phantomDepth, "mm", "Gy");
+                                 200, 0, 5*cm, "cm", "keV");
         analysisManager->CreateH1("energy_deposition", "Energy deposition per event", 
-                                 100, 0, 10*MeV, "MeV");
+                                 100, 0, 1*MeV, "MeV");
         analysisManager->CreateH1("particle_energy", "Primary particle energy spectrum", 
                                  100, 0, 20*MeV, "MeV");
         
@@ -43,12 +43,15 @@ public:
         // Получаем анализ manager
         G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
         
+        // Нормализуем график распределения
+        G4int numEvents = run->GetNumberOfEvent();
+        analysisManager->ScaleH1(0, 1.0 / numEvents);
+
         // Сохраняем и закрываем файл
         analysisManager->Write();
         analysisManager->CloseFile();
         
         // Выводим статистику
-        G4int numEvents = run->GetNumberOfEvent();
         G4double averageEnergyDeposited = totalEnergyDeposited / numEvents;
         G4double averageTrackLength = totalTrackLength / numEvents;
         

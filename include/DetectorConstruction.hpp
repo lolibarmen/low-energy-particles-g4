@@ -9,6 +9,9 @@
 #include "G4NistManager.hh"
 #include "G4VisAttributes.hh"
 #include "G4Colour.hh"
+#include "G4SDManager.hh"
+
+#include "SensitiveDetector.hpp"
 
 class DetectorConstruction : public G4VUserDetectorConstruction {
 public:
@@ -39,7 +42,7 @@ public:
         
         // Создаем фантом (мишень)
         G4Box* phantomSolid = new G4Box("Phantom", phantomSize.x()/2, phantomSize.y()/2, phantomSize.z()/2);
-        G4LogicalVolume* phantomLogical = new G4LogicalVolume(phantomSolid, phantomMaterial, "Phantom");
+        phantomLogical = new G4LogicalVolume(phantomSolid, phantomMaterial, "Phantom");
         new G4PVPlacement(0, G4ThreeVector(0, 0, 0), phantomLogical, "Phantom", worldLogical, false, 0);
         
         // Создаем поглотитель (опционально)
@@ -56,6 +59,18 @@ public:
         
         return worldPhysical;
     }
+
+    virtual void ConstructSDandField() override {
+        // Создаем чувствительный детектор
+        sensitiveDetector = new SensitiveDetector("PhantomSD");
+        
+        // Регистрируем его в менеджере
+        G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
+        
+        // Назначаем чувствительный детектор фантому
+        SetSensitiveDetector(phantomLogical, sensitiveDetector);
+    }
+
     
     void SetUseAbsorber(G4bool use) { useAbsorber = use; }
     G4bool GetUseAbsorber() const { return useAbsorber; }
@@ -114,6 +129,8 @@ private:
     
     G4Material* absorberMaterial;
     G4Material* phantomMaterial;
+    G4LogicalVolume* phantomLogical;
+    SensitiveDetector* sensitiveDetector;
 };
 
 #endif // DETECTOR_CONSTRUCTION_HPP

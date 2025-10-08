@@ -6,6 +6,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o: /home/lolibarmen/Code/low-energy
   /home/lolibarmen/Code/low-energy-particles-g4/include/PhysicsList.hpp \
   /home/lolibarmen/Code/low-energy-particles-g4/include/PrimaryGeneratorAction.hpp \
   /home/lolibarmen/Code/low-energy-particles-g4/include/RunAction.hpp \
+  /home/lolibarmen/Code/low-energy-particles-g4/include/SensitiveDetector.hpp \
   /home/lolibarmen/Code/low-energy-particles-g4/include/SteppingAction.hpp \
   /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/algorithm \
   /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/array \
@@ -502,6 +503,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o: /home/lolibarmen/Code/low-energy
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ChargedUnknownParticle.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ChemTimeStepModel.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ClassificationOfNewTrack.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4CollectionNameVector.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Color.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Colour.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Cons.hh \
@@ -566,6 +568,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o: /home/lolibarmen/Code/low-energy
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4GlobalConfig.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4GraphicsSystemList.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HCofThisEvent.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HCtable.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadFinalState.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadProjectile.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HadSecondary.hh \
@@ -719,12 +722,15 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o: /home/lolibarmen/Code/low-energy
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Run.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4RunManager.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4RunManagerKernel.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDManager.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDStructure.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SandiaTable.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Scene.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Scene.icc \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneHandlerList.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneList.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SceneTreeItem.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SensitiveVolumeList.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaMinus.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaPlus.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SigmaZero.hh \
@@ -865,9 +871,12 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o: /home/lolibarmen/Code/low-energy
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VPrimaryGenerator.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VProcess.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRML2File.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VReadOutGeometry.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRestDiscreteProcess.hh \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSDFilter.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSceneHandler.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSceneHandler.icc \
+  /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSensitiveDetector.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.hh \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.icc \
   /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VStateDependent.hh \
@@ -1382,6 +1391,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SandiaTable.hh:
 
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDManager.hh:
+
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4RunManagerKernel.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VFilter.hh:
@@ -1485,6 +1496,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4OpticalPhoton.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4OmegabMinus.hh:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SDStructure.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4OmegaMinus.hh:
 
@@ -1648,6 +1661,14 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Etac.hh:
 
+/nix/store/fjv8jcwwcd216mw5wllzwrbxira81pnf-libICE-1.1.2/lib/libICE.so.6:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Tubs.icc:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4MaterialPropertiesIndex.hh:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4EnvironmentUtils.hh:
+
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandPoisson.h:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/vector.tcc:
@@ -1657,6 +1678,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandGaussT.icc:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/TripleRand.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4CollectionNameVector.hh:
 
 /nix/store/w86hjmaxv9izw2gvkprl6ciabws8b19y-libpsl-0.21.5/lib/libpsl.so.5:
 
@@ -1892,6 +1915,10 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/ext/type_traits.h:
 
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Eta.hh:
+
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/gthr-default.h:
+
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VUserPrimaryGeneratorAction.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4BMesonZero.hh:
@@ -1946,15 +1973,7 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/cstdio:
 
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/localefwd.h:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.icc:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SmartVoxelHeader.icc:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4PhysicsModelCatalog.hh:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Colour.hh:
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/cstdint:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/locale_facets_nonio.tcc:
 
@@ -2004,14 +2023,6 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/types/struct_FILE.h:
 
-/nix/store/girp43cxvqpjq4ad56r8girsq8na5bxh-icu4c-76.1/lib/libicui18n.so.76:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Box.hh:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/utility:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/exception_ptr.h:
-
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/basic_file.h:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/unique_ptr.h:
@@ -2058,11 +2069,15 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4ASCIITree.hh:
 
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/stl_pair.h:
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRML2File.hh:
 
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/algorithmfwd.h:
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/concept_check.h:
 
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4AntiSigmabPlus.hh:
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4DCofThisEvent.hh:
+
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/system_error:
+
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/sstream.tcc:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/locale_conv.h:
 
@@ -2084,6 +2099,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/specfun.h:
 
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/exception_ptr.h:
+
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/chrono.h:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/thread-shared-types.h:
@@ -2100,15 +2117,11 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /home/lolibarmen/Code/low-energy-particles-g4/include/RunAction.hpp:
 
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VRML2File.hh:
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/stl_pair.h:
 
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/concept_check.h:
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/algorithmfwd.h:
 
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4DCofThisEvent.hh:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/system_error:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/sstream.tcc:
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4AntiSigmabPlus.hh:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandBinomial.icc:
 
@@ -2117,8 +2130,6 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/MTwistEngine.h:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/Ranlux64Engine.h:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/cstdint:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/lib/libG4gdml.so:
 
@@ -2130,6 +2141,16 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/quoted_string.h:
 
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/localefwd.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSolid.icc:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SmartVoxelHeader.icc:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4PhysicsModelCatalog.hh:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Colour.hh:
+
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/istream.tcc:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/ctype_base.h:
@@ -2138,11 +2159,11 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Vector/RotationZ.icc:
 
-/home/lolibarmen/Code/low-energy-particles-g4/include/PhysicsList.hpp:
-
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Visible.icc:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/backward/binders.h:
+
+/home/lolibarmen/Code/low-energy-particles-g4/include/PhysicsList.hpp:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/MixMaxRng.h:
 
@@ -2181,14 +2202,6 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/cwchar:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/stdlib.h:
-
-/nix/store/fjv8jcwwcd216mw5wllzwrbxira81pnf-libICE-1.1.2/lib/libICE.so.6:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Tubs.icc:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4MaterialPropertiesIndex.hh:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4EnvironmentUtils.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VVolumeMaterialScanner.hh:
 
@@ -2248,17 +2261,13 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/endian.h:
 
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/tools/histo/b2:
-
-/nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandPoissonQ.h:
-
-/nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandExponential.h:
-
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/ctype_inline.h:
 
 /nix/store/iqb0wx1l7kgb6kh0d4k99nldib5vklb6-libXmu-1.2.1/lib/libXmu.so.6:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/stl_relops.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4HCtable.hh:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/ostream_insert.h:
 
@@ -2273,10 +2282,6 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/g8zyryr9cr6540xsyg4avqkwgxpnwj2a-glibc-2.40-66/lib/libm.so:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4DigiFilterFactories.hh:
-
-/nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/types/struct_timeval.h:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/erase_if.h:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/cxxabi_forced.h:
 
@@ -2334,6 +2339,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/std_mutex.h:
 
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VReadOutGeometry.hh:
+
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/std_thread.h:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/this_thread_sleep.h:
@@ -2361,6 +2368,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/c++locale.h:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/version.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSDFilter.hh:
 
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bit:
 
@@ -2419,6 +2428,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4AntiSigmaZero.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VisManager.icc:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4SensitiveVolumeList.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Ions.hh:
 
@@ -2503,6 +2514,22 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/condition_variable:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/math.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/tools/histo/b2:
+
+/nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandExponential.h:
+
+/nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Random/RandPoissonQ.h:
+
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/bits/erase_if.h:
+
+/nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/types/struct_timeval.h:
+
+/nix/store/girp43cxvqpjq4ad56r8girsq8na5bxh-icu4c-76.1/lib/libicui18n.so.76:
+
+/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/utility:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Box.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VPrimaryGenerator.hh:
 
@@ -2637,6 +2664,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/tools/histo/p1d:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/bits/stdint-intn.h:
+
+/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4VSensitiveDetector.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4KaonZeroLong.hh:
 
@@ -2914,6 +2943,8 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 
 /nix/store/jd4bvm94ikfhgwpirjbm7spc0jp08f16-clhep-2.4.7.1/include/CLHEP/Geometry/Point3D.h:
 
+/home/lolibarmen/Code/low-energy-particles-g4/include/SensitiveDetector.hpp:
+
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4AntiSigmabZero.hh:
 
 /nix/store/m3n0h7646c7qwf6dbvdqhslmxmv2dg3z-glibc-2.40-66-dev/include/features-time64.h:
@@ -3119,7 +3150,3 @@ CMakeFiles/dose_calculation.dir/src/main.cpp.o:
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4EmFluoDirectory.hh:
 
 /nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4EnergyRangeManager.hh:
-
-/nix/store/8adzgnxs3s0pbj22qhk9zjxi1fqmz3xv-gcc-14.3.0/include/c++/14.3.0/x86_64-unknown-linux-gnu/bits/gthr-default.h:
-
-/nix/store/rqyvc2w1rblaidi749s5wnwn3i10c4ji-geant4-11.3.2/include/Geant4/G4Eta.hh:
