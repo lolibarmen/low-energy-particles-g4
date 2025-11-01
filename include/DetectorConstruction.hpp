@@ -19,7 +19,7 @@ public:
         : worldSize(50*cm), 
           phantomSize(30*cm, 30*cm, 20*cm),
           absorberThickness(5*mm),
-          useAbsorber(false),
+          useAbsorber(true),
           absorberMaterial(nullptr),
           phantomMaterial(nullptr) {}
     
@@ -35,7 +35,7 @@ public:
         G4_WATER - вода
         G4_POLYETHYLENE - полиэтилен
         */
-        phantomMaterial = nist->FindOrBuildMaterial("G4_WATER");  // Вода как фантом тканей
+        phantomMaterial = nist->FindOrBuildMaterial("G4_Al");  // Вода как фантом тканей
         absorberMaterial = nist->FindOrBuildMaterial("G4_Pb");    // Свинец как поглотитель
         
         // Создаем мировой объем

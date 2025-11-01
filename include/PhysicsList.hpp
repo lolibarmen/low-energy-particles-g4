@@ -99,7 +99,7 @@ private:
         // Включаем дополнительные опции для медицинской физики
         params->SetUseICRU90Data(true);      // Используем данные ICRU 90
         params->SetApplyCuts(true);          // Применяем пороги отсечки
-        params->SetStepFunction(0.01, 0.1*mm); // Функция шага: dE/dx = 0.01, min step = 0.1mm
+        params->SetStepFunction(0.001, 0.01*mm); // Функция шага: dE/dx = 0.01, min step = 0.1mm
         
         // Настраиваем параметры для моделирования вторичных частиц
         params->SetBuildCSDARange(true);

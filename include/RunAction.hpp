@@ -26,7 +26,7 @@ public:
         // Создаем гистограммы для распределения дозы по глубине
         G4double phantomDepth = detConstruction->GetPhantomSize().z();
         analysisManager->CreateH1("dose_depth", "Dose distribution along depth", 
-                                 1000, 0, 1*cm, "mm", "Gy");
+                                 100, 0, 0.5*cm, "mm", "Gy");
         analysisManager->CreateH1("energy_deposition", "Energy deposition per event", 
                                  100, 0, 1*MeV, "MeV");
         analysisManager->CreateH1("particle_energy", "Primary particle energy spectrum", 
@@ -45,11 +45,11 @@ public:
         
         // Нормализуем график распределения
         G4int numEvents = run->GetNumberOfEvent();
-        analysisManager->ScaleH1(0, 1.0 / numEvents);
+        // analysisManager->ScaleH1(0, 1.0 / numEvents);
 
         // Приводим к линейной плотности 
-        G4double binWidth = analysisManager->GetH1(0)->axis().bin_width(0) / mm;
-        analysisManager->ScaleH1(0, 1.0 / binWidth);
+        // G4double binWidth = analysisManager->GetH1(0)->axis().bin_width(0) / mm;
+        // analysisManager->ScaleH1(0, 1.0 / binWidth);
 
         // Сохраняем и закрываем файл
         analysisManager->Write();

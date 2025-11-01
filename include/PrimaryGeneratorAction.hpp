@@ -25,10 +25,30 @@ public:
         G4ThreeVector basePosition = particleGun->GetParticlePosition();
         G4ThreeVector baseDirection = particleGun->GetParticleMomentumDirection();
 
-        G4double radius = 10.0 * cm;
+        // Согласно данным усорителя
+        G4double radius = 6.0 * cm;
+
+        // Данные для энергетического спектра
+        const std::vector<G4double> energies = {0.1, 0.2, 0.30, 0.35, 0.40, 0.45, 0.50};
+        const std::vector<G4double> probabilities = {0.0, 0.0, 0.0, 0.025, 0.05, 0.125, 0.8};
+        
+        // Генерация случайной энергии согласно распределению
+        G4double randomValue = G4UniformRand();
+        G4double cumulativeProb = 0.0;
+        G4double selectedEnergy = energies.back(); // значение по умолчанию
+        
+        for (size_t i = 0; i < probabilities.size(); ++i) {
+            cumulativeProb += probabilities[i];
+            if (randomValue <= cumulativeProb) {
+                selectedEnergy = energies[i];
+                break;
+            }
+        }
+        
+        // Устанавливаем энергию частицы
+        particleGun->SetParticleEnergy(selectedEnergy * MeV);
 
         G4ThreeVector normal = baseDirection.unit();
-
         G4ThreeVector axisX, axisY;
 
         G4ThreeVector temp;

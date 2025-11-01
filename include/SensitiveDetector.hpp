@@ -21,7 +21,7 @@ public:
         if (edep == 0.) return false;  // Пропускаем шаги без депозита энергии
         
         // Конвертируем энергию в дозу (Грей = Джоуль/кг)
-        G4double dose = (edep / joule) / phantomMass;  // edep в МэВ, конвертируем в Джоули
+        G4double dose = (edep * MeV / joule) / phantomMass;  // edep в МэВ, конвертируем в Джоули
         
         // Получаем позицию депозита энергии
         G4ThreeVector position = step->GetPreStepPoint()->GetPosition();
@@ -30,7 +30,7 @@ public:
         G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
         
         // Заполняем гистограммы с дозой в Греях
-        analysisManager->FillH1(0, position.z(), edep);
+        analysisManager->FillH1(0, position.z(), dose);
         // analysisManager->FillH1(1, dose);
         
         return true;
