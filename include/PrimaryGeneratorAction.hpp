@@ -25,11 +25,10 @@ public:
         G4ThreeVector basePosition = particleGun->GetParticlePosition();
         G4ThreeVector baseDirection = particleGun->GetParticleMomentumDirection();
 
-        G4double planeSizeX = 10.0 * cm;
-        G4double planeSizeY = 10.0 * cm;
+        G4double radius = 10.0 * cm;
 
         G4ThreeVector normal = baseDirection.unit();
-        
+
         G4ThreeVector axisX, axisY;
 
         G4ThreeVector temp;
@@ -42,8 +41,12 @@ public:
         axisX = (normal.cross(temp)).unit();
         axisY = (normal.cross(axisX)).unit();
 
-        G4double u = (G4UniformRand() - 0.5) * planeSizeX;
-        G4double v = (G4UniformRand() - 0.5) * planeSizeY;
+        // Генерация случайной точки в круге радиусом 10 см
+        G4double r = radius * std::sqrt(G4UniformRand());  // равномерное распределение по площади
+        G4double theta = 2 * M_PI * G4UniformRand();       // случайный угол
+
+        G4double u = r * std::cos(theta);
+        G4double v = r * std::sin(theta);
 
         G4ThreeVector finalPosition = basePosition + u * axisX + v * axisY;
         

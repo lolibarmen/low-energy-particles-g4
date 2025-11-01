@@ -31,6 +31,10 @@ public:
         
         // Создаем материалы
         G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
+        /*
+        G4_WATER - вода
+        G4_POLYETHYLENE - полиэтилен
+        */
         phantomMaterial = nist->FindOrBuildMaterial("G4_WATER");  // Вода как фантом тканей
         absorberMaterial = nist->FindOrBuildMaterial("G4_Pb");    // Свинец как поглотитель
         
@@ -44,13 +48,20 @@ public:
         G4Box* phantomSolid = new G4Box("Phantom", phantomSize.x()/2, phantomSize.y()/2, phantomSize.z()/2);
         phantomLogical = new G4LogicalVolume(phantomSolid, phantomMaterial, "Phantom");
         new G4PVPlacement(0, G4ThreeVector(0, 0, 0), phantomLogical, "Phantom", worldLogical, false, 0);
+
+        G4double phantomVolume = phantomSolid->GetCubicVolume() / (m3);  // объем в мм³
+        G4double phantomDensity = phantomMaterial->GetDensity() / (kg/m3);  // плотность в кг/м³
+
+        phantomMass = phantomVolume * phantomDensity;  // масса в кг
+
+        printf("Phantom mass: %fkg\n", (float)phantomMass);
         
         // Создаем поглотитель (опционально)
         if (useAbsorber) {
             G4double absorberPosZ = -phantomSize.z()/2 - absorberThickness/2;
             G4Box* absorberSolid = new G4Box("Absorber", phantomSize.x()/2, phantomSize.y()/2, absorberThickness/2);
             G4LogicalVolume* absorberLogical = new G4LogicalVolume(absorberSolid, absorberMaterial, "Absorber");
-            new G4PVPlacement(0, G4ThreeVector(0, 0, absorberPosZ), absorberLogical, 
+            new G4PVPlacement(0, G4ThreeVector(0, 0, absorberPosZ), absorberLogical,
                             "Absorber", worldLogical, false, 0);
         }
         
@@ -62,7 +73,7 @@ public:
 
     virtual void ConstructSDandField() override {
         // Создаем чувствительный детектор
-        sensitiveDetector = new SensitiveDetector("PhantomSD");
+        sensitiveDetector = new SensitiveDetector("PhantomSD", phantomMass);
         
         // Регистрируем его в менеджере
         G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
@@ -70,26 +81,10 @@ public:
         // Назначаем чувствительный детектор фантому
         SetSensitiveDetector(phantomLogical, sensitiveDetector);
     }
-
-    
-    void SetUseAbsorber(G4bool use) { useAbsorber = use; }
-    G4bool GetUseAbsorber() const { return useAbsorber; }
-    
-    void SetAbsorberThickness(G4double thickness) { absorberThickness = thickness; }
-    G4double GetAbsorberThickness() const { return absorberThickness; }
-    
-    void SetAbsorberMaterial(const G4String& materialName) {
-        G4NistManager* nist = G4NistManager::Instance();
-        absorberMaterial = nist->FindOrBuildMaterial(materialName);
-    }
-    
-    void SetPhantomMaterial(const G4String& materialName) {
-        G4NistManager* nist = G4NistManager::Instance();
-        phantomMaterial = nist->FindOrBuildMaterial(materialName);
-    }
     
     G4ThreeVector GetPhantomSize() const { return phantomSize; }
-    G4double GetWorldSize() const { return worldSize; }
+
+    G4double GetPhantomMass() const { return phantomMass; }
 
 private:
     void SetupVisualization(G4LogicalVolume* worldLV, G4LogicalVolume* phantomLV) {
@@ -121,11 +116,12 @@ private:
     //     return nullptr;
     // }
 
-private:
     G4double worldSize;
     G4ThreeVector phantomSize;
     G4double absorberThickness;
     G4bool useAbsorber;
+
+    G4double phantomMass = 0.0;
     
     G4Material* absorberMaterial;
     G4Material* phantomMaterial;

@@ -4,11 +4,12 @@
 
 # Частица
 /gun/particle e-
-/gun/energy 0.5 MeV
+/gun/energy 10 MeV
 
 # Положение пушки
 /gun/position 0 0 -150 mm
 /gun/direction 0 0 1
 
 # Старт
-/run/beamOn 10000
+/run/printProgress 1000  # Печатать прогресс каждые 1000 событий
+/run/beamOn 100000
